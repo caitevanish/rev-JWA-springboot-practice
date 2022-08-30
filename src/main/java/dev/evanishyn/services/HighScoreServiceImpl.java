@@ -20,11 +20,12 @@ public class HighScoreServiceImpl implements HighScoreService {
         if(highScore.getInitials() != null){
             String updInitials = highScore.getInitials().toUpperCase();
 
-            if(updInitials.length()>3 ){
-                updInitials = highScore.getInitials().substring(0,2).toUpperCase();
+            if(updInitials.length()>=3 ){
+                updInitials = highScore.getInitials().substring(0,3).toUpperCase();
+                System.out.println(updInitials);
                 highScore.setInitials(updInitials);
 
-                if(highScore.getHighScore() < 0 && highScore.getInitials().length() == 3){
+                if(highScore.getHighScore() > 0 && highScore.getInitials().length() == 3){
                 return this.highScoreRepo.save(highScore);
                 }
                 throw new RuntimeException("Must have a score above 0 and 3 letters of initials");
@@ -51,7 +52,7 @@ public class HighScoreServiceImpl implements HighScoreService {
 
     @Override
     public List<HighScore> getAllScores() {
-        return null;
+        return this.highScoreRepo.findAll();
     }
     //scores shown in descending order
 
