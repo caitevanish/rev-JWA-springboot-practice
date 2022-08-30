@@ -1,10 +1,21 @@
 package dev.evanishyn.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="highscore")
 public class HighScore {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
+
+    @Column(name="initials")
     private String initials;
+    @Column(name="highScore")
     private int highScore;
+
 
     public HighScore() {
     }
