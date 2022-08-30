@@ -13,7 +13,8 @@ public class HighScore {
 
     @Column(name="initials")
     private String initials;
-    @Column(name="highScore")
+
+    @Column(name="highscore")
     private int highScore;
 
 
