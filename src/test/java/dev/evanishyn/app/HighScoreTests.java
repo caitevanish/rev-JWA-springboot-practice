@@ -24,15 +24,16 @@ public class HighScoreTests {
     }
 
     @Test
-    public void get_score_by_id(){
-        HighScore hs = this.highScoreRepo.findById(1).get();
-        System.out.println(hs);
-    }
-
-    @Test
     public void get_all_scores(){
         List<HighScore> scores = this.highScoreRepo.findAll();
         System.out.println(scores);
     }
+
+    @Test
+    public void get_score_by_id(){
+        HighScore hs = this.highScoreRepo.findById(1).get();    //needs isPresent() to check
+        System.out.println(hs);
+    }
+
 
 }

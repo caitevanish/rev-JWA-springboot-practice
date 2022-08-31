@@ -1,6 +1,7 @@
 package dev.evanishyn.controllers;
 
 import dev.evanishyn.entities.HighScore;
+import dev.evanishyn.repos.HighScoreRepo;
 import dev.evanishyn.services.HighScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +24,27 @@ public class HighScoreController {
 
     @GetMapping("/highscores")
     @ResponseBody
-    public List<HighScore> allScores(@RequestParam (required = false) String initials){
-        if(initials==null){
+    public List<HighScore> allScores(){
             return highScoreService.getAllScores();
-        }else{
-            return highScoreService.getScoresByInitials(initials);
-        }
     }
+
+    @GetMapping("/highscores/{id}")
+    @ResponseBody
+    public HighScore getScorebyId(@PathVariable String id){
+        int scoreId = Integer.parseInt(id);
+        return highScoreService.getScoreById(scoreId);
+    }
+
+    @PutMapping("/highscores")
+    @ResponseBody
+    public HighScore updateScoreById(@PathVariable HighScore highScore){
+        return this.highScoreService.updateScore(highScore);
+    }
+
+//    @DeleteMapping("/highscores/{id}")
+//    @ResponseBody
+//    public HighScore deleteScore
+
+
 
 }

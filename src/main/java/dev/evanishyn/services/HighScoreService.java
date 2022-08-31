@@ -13,4 +13,6 @@ public interface HighScoreService {
     List<HighScore> getAllScores();
 
     List<HighScore> getScoresByInitials(String initials);
+
+    HighScore updateScore(HighScore highScore);
 }
