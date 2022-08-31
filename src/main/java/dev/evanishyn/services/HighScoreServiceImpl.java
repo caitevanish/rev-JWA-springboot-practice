@@ -52,12 +52,18 @@ public class HighScoreServiceImpl implements HighScoreService {
         }
     }
 
+//    @Override
+//    public List<HighScore> getAllScores() {
+//        List<HighScore> scores = this.highScoreRepo.findAll(Sort.by(Sort.Direction.DESC, "highScore"));
+//        return scores;
+//    }
+    //scores shown in descending order
+
     @Override
     public List<HighScore> getAllScores() {
         List<HighScore> scores = this.highScoreRepo.findAll(Sort.by(Sort.Direction.DESC, "highScore"));
         return scores;
     }
-    //scores shown in descending order
 
     @Override
     public List<HighScore> getScoresByInitials(String initials) {
@@ -67,7 +73,15 @@ public class HighScoreServiceImpl implements HighScoreService {
 
     @Override
     public HighScore updateScore(HighScore highScore){
-        return null;
+
+        return this.updateScore(highScore);
     }
+
+
+
 }
+
+
+
+
 
