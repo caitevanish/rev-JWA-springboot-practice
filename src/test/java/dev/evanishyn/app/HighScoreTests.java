@@ -7,9 +7,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @SpringBootTest
+@Transactional
 public class HighScoreTests {
 
     @Autowired
@@ -25,8 +27,16 @@ public class HighScoreTests {
 
     @Test
     public void get_all_scores(){
+        HighScore hs2 = new HighScore(0, "AAA", 200);
+        HighScore savedHs2 = this.highScoreRepo.save(hs2);
+
+        HighScore hs3 = new HighScore(0, "AAA", 300);
+        HighScore savedHs3 = this.highScoreRepo.save(hs3);
+
+
         List<HighScore> scores = this.highScoreRepo.findAll();
         System.out.println(scores);
+        Assertions.assertEquals(3, scores.size());
     }
 
     @Test
