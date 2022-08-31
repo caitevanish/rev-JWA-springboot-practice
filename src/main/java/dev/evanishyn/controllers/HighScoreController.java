@@ -1,7 +1,6 @@
 package dev.evanishyn.controllers;
 
 import dev.evanishyn.entities.HighScore;
-import dev.evanishyn.repos.HighScoreRepo;
 import dev.evanishyn.services.HighScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,10 +21,16 @@ public class HighScoreController {
     }
 
 
+//    @GetMapping("/highscores")
+//    @ResponseBody
+//    public List<HighScore> allScores(){
+//            return highScoreService.getAllScores();
+//    }
+
     @GetMapping("/highscores")
     @ResponseBody
     public List<HighScore> allScores(){
-            return highScoreService.getAllScores();
+        return highScoreService.getAllScores();
     }
 
     @GetMapping("/highscores/{id}")
