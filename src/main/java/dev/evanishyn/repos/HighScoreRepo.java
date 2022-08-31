@@ -8,6 +8,8 @@ import java.util.List;
 
 @Repository
 public interface HighScoreRepo extends JpaRepository<HighScore,Integer>{
-// List<HighScore>
+
+//    List<HighScore> orderScoresDesc();
+
 }
 
