@@ -32,7 +32,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - run: sudo chmod 777 /home/runner/work/rev-JWA-springboot-practice/rev-JWA-springboot-practice/gradlew
+    - run: sudo chmod 777 /home/runner/work/high-score-app/high-score-app/gradlew
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
