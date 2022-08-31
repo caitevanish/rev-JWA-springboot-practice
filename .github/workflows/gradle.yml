@@ -8,7 +8,7 @@
 name: Java CI with Gradle
 
 env:
-  SCORE_DB: ${{secrets.SCORE_DB}}
+  SCORE_DB: ${{secrets.AZURE_SQL_DB}}
 
 
 on:
